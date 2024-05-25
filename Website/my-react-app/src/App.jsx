@@ -4,6 +4,7 @@ import Food from './Food.jsx'
 import Card from './Card.jsx'
 import Button from './Button.jsx'
 import Student from './Student.jsx'
+import UserGreeting from './UserGreeting.jsx'
 
 function App() {
   return(
@@ -11,7 +12,7 @@ function App() {
       <Header/>
       <Card/>
       <Student name="Spongebob" age={30} isStudent={true}/>
-      <Student/>
+      <UserGreeting isLoggedIn={true} username="Random"/>
       <Food/>
       <Button/>
       <Footer/>
