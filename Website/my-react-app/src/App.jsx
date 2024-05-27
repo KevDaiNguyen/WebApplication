@@ -7,6 +7,8 @@ import Student from './Student.jsx'
 import UserGreeting from './UserGreeting.jsx'
 import List from './List.jsx'
 import ProfilePicture from './ProfilePicture.jsx'
+import Employement from './Employement.jsx'
+import Counter from './Counter.jsx'
 
 function App() {
   
@@ -29,11 +31,13 @@ function App() {
   return(
     <>
       <Header/>
+      <Counter/>
       <Card/>
       <ProfilePicture/>
       {fruits.length > 0 && <List items={fruits} category = "Fruits"/>}
       {vegetables.length > 0 ? <List items={vegetables} category = "Fruits"></List>: null}
       <Student name="Spongebob" age={30} isStudent={true}/>
+      <Employement/>
       <UserGreeting isLoggedIn={true} username="Random"/>
       <Food/>
       <Button/>
