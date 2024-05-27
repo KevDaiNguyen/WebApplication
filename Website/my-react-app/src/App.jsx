@@ -6,6 +6,7 @@ import Button from './Button.jsx'
 import Student from './Student.jsx'
 import UserGreeting from './UserGreeting.jsx'
 import List from './List.jsx'
+import ProfilePicture from './ProfilePicture.jsx'
 
 function App() {
   
@@ -29,6 +30,7 @@ function App() {
     <>
       <Header/>
       <Card/>
+      <ProfilePicture/>
       {fruits.length > 0 && <List items={fruits} category = "Fruits"/>}
       {vegetables.length > 0 ? <List items={vegetables} category = "Fruits"></List>: null}
       <Student name="Spongebob" age={30} isStudent={true}/>
