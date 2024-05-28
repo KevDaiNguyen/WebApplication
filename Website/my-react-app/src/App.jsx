@@ -9,6 +9,7 @@ import List from './List.jsx'
 import ProfilePicture from './ProfilePicture.jsx'
 import Employement from './Employement.jsx'
 import Counter from './Counter.jsx'
+import InputExample from './InputExample.jsx'
 
 function App() {
   
@@ -31,6 +32,7 @@ function App() {
   return(
     <>
       <Header/>
+      <InputExample/>
       <Counter/>
       <Card/>
       <ProfilePicture/>
