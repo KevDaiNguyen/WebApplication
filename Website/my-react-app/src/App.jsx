@@ -10,6 +10,7 @@ import ProfilePicture from './ProfilePicture.jsx'
 import Employement from './Employement.jsx'
 import Counter from './Counter.jsx'
 import InputExample from './InputExample.jsx'
+import ColorPicker from './ColorPicker.jsx'
 
 function App() {
   
@@ -32,6 +33,7 @@ function App() {
   return(
     <>
       <Header/>
+      <ColorPicker/>
       <InputExample/>
       <Counter/>
       <Card/>
