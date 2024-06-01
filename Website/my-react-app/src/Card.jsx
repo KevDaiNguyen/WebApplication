@@ -1,4 +1,4 @@
-import profilePic from './assets/KevNFT.png'
+import profilePic from './assets/NVA-panda.png'
 
 function Card()
 {

@@ -1,7 +1,7 @@
 
 function ProfilePicture(){
 
-    const imageUrl = "./src/assets/KevNFT.png"
+    const imageUrl = "./src/assets/NVA-panda.png"
 
     const handleClick = (e) => e.target.style.display = "none";
 

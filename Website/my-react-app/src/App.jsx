@@ -38,7 +38,7 @@ function App() {
       <InputExample/>
       <Car/>
       <Counter/>
-      <Card/>
+      <Card/><br/>
       <ProfilePicture/>
       {fruits.length > 0 && <List items={fruits} category = "Fruits"/>}
       {vegetables.length > 0 ? <List items={vegetables} category = "Fruits"></List>: null}
