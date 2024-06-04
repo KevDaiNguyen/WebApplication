@@ -12,6 +12,7 @@ import Counter from './Counter.jsx'
 import InputExample from './InputExample.jsx'
 import ColorPicker from './ColorPicker.jsx'
 import Car from './Car.jsx'
+import ToDoList from './ToDoList.jsx'
 
 function App() {
   
@@ -34,6 +35,7 @@ function App() {
   return(
     <>
       <Header/>
+      <ToDoList />
       <ColorPicker/>
       <InputExample/>
       <Car/>
