@@ -13,6 +13,8 @@ import InputExample from './InputExample.jsx'
 import ColorPicker from './ColorPicker.jsx'
 import Car from './Car.jsx'
 import ToDoList from './ToDoList.jsx'
+import UseStateExample from './UseStateExample.jsx'
+import WindowSize from './WindowSize.jsx'
 
 function App() {
   
@@ -35,6 +37,8 @@ function App() {
   return(
     <>
       <Header/>
+      <WindowSize />
+      <UseStateExample />
       <ToDoList />
       <ColorPicker/>
       <InputExample/>
