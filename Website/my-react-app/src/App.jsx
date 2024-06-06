@@ -15,6 +15,7 @@ import Car from './Car.jsx'
 import ToDoList from './ToDoList.jsx'
 import UseStateExample from './UseStateExample.jsx'
 import WindowSize from './WindowSize.jsx'
+import DigitalClock from './DigitalClock.jsx'
 
 function App() {
   
@@ -36,6 +37,7 @@ function App() {
 
   return(
     <>
+      <DigitalClock />
       <Header/>
       <WindowSize />
       <UseStateExample />
