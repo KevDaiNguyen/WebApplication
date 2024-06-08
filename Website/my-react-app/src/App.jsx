@@ -16,6 +16,7 @@ import ToDoList from './ToDoList.jsx'
 import UseStateExample from './UseStateExample.jsx'
 import WindowSize from './WindowSize.jsx'
 import DigitalClock from './DigitalClock.jsx'
+import ComponentA from './ComponentA.jsx'
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
     <>
       <DigitalClock />
       <Header/>
+      <ComponentA />
       <WindowSize />
       <UseStateExample />
       <ToDoList />
