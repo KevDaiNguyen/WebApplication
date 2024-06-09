@@ -17,6 +17,7 @@ import UseStateExample from './UseStateExample.jsx'
 import WindowSize from './WindowSize.jsx'
 import DigitalClock from './DigitalClock.jsx'
 import ComponentA from './ComponentA.jsx'
+import UseRefExample from './UseRefExample.jsx'
 
 function App() {
   
@@ -51,11 +52,12 @@ function App() {
       <Card/><br/>
       <ProfilePicture/>
       {fruits.length > 0 && <List items={fruits} category = "Fruits"/>}
-      {vegetables.length > 0 ? <List items={vegetables} category = "Fruits"></List>: null}
+      {vegetables.length > 0 ? <List items={vegetables} category = "Fruits"></List>: null} <br/>
       <Student name="Spongebob" age={30} isStudent={true}/>
-      <Employement/>
+      <Employement/> <br/>
       <UserGreeting isLoggedIn={true} username="Random"/>
-      <Food/>
+      <Food/> <br/>
+      <UseRefExample/> <br/>
       <Button/>
       <Footer/>
     </>
