@@ -18,6 +18,7 @@ import WindowSize from './WindowSize.jsx'
 import DigitalClock from './DigitalClock.jsx'
 import ComponentA from './ComponentA.jsx'
 import UseRefExample from './UseRefExample.jsx'
+import Stopwatch from './Stopwatch.jsx'
 
 function App() {
   
@@ -41,6 +42,7 @@ function App() {
     <>
       <DigitalClock />
       <Header/>
+      <Stopwatch/>
       <ComponentA />
       <WindowSize />
       <UseStateExample />
