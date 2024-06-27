@@ -31,7 +31,7 @@ function RandomTool()
     function resetCoin()
     {
         decreaseOdds(coinChance);
-        setCoinChance(0);
+        setCoinChance(1);
     }
 
     function increaseDie()
@@ -42,7 +42,7 @@ function RandomTool()
     function resetDie()
     {
         decreaseOdds(dieChance);
-        setDieChance(0);
+        setDieChance(1);
     }
 
     function toggleCoinFail()
