@@ -19,6 +19,7 @@ import DigitalClock from './DigitalClock.jsx'
 import ComponentA from './ComponentA.jsx'
 import UseRefExample from './UseRefExample.jsx'
 import Stopwatch from './Stopwatch.jsx'
+import RandomTool from './RandomTool.jsx'
 
 function App() {
   
@@ -38,6 +39,7 @@ function App() {
 
   const vegetables = [];
 
+  /* For example pieces
   return(
     <>
       <DigitalClock />
@@ -63,7 +65,15 @@ function App() {
       <Button/>
       <Footer/>
     </>
-  );
-}
+  )
+  */
+
+  return(
+    <>
+    <Header/>
+    <RandomTool/>
+    <Footer/>
+    </>
+  );}
 
 export default App
