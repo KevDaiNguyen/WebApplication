@@ -7,6 +7,8 @@ function RandomTool()
     const [dieChance, setDieChance] = useState(1);
     const [coinFail, setCoinFail] = useState(false);
     const [dieFail, setDieFail] = useState(false);
+    const [coinWinLoss, setCoinWinLoss] = useState([0, 0]);
+    const [dieWinLoss, setDieWinLoss] = useState([0, 0]);
     const [callResult, setCallText] = useState("");
 
     useEffect(() => {
@@ -24,40 +26,47 @@ function RandomTool()
         setTotalChance(total => total / oldOdds);
     }
 
-    function increaseCoin()
+    function gambleWin(chanceType)
     {
-        setCoinChance(coin => coin * (1/2));
+        if (chanceType == "coin")
+        {
+            setCoinChance(coin => coin * (1/2));
+        }
+        else if (chanceType == "die")
+        {
+            setDieChance(die => die * (1/6));
+        }
     }
 
-    function resetCoin()
+    function gamelbeReset(chanceType)
     {
-        decreaseOdds(coinChance);
-        setCoinChance(1);
+        if (chanceType == "coin")
+        {
+            decreaseOdds(coinChance);
+            setCoinChance(1);
+            setCoinWinLoss([0, 0]);
+        }
+        else if (chanceType == "die")
+        {
+            decreaseOdds(dieChance);
+            setDieChance(1);
+            setDieWinLoss([0, 0]);
+        }
         resetResults();
     }
 
-    function increaseDie()
+    function gambleToggle(chanceType)
     {
-        setDieChance(die => die * (1/6));
-    }
-
-    function resetDie()
-    {
-        decreaseOdds(dieChance);
-        setDieChance(1);
-        resetResults();
-    }
-
-    function toggleCoinFail()
-    {
-        setCoinFail(!coinFail);
-        resetCoin();
-    }
-
-    function toggleDieFail()
-    {
-        setDieFail(!dieFail);
-        resetDie();
+        if (chanceType == "coin")
+        {
+            setCoinFail(!coinFail);
+            gamelbeReset("coin");
+        }
+        else if (chanceType == "die")
+        {
+            setDieFail(!dieFail);
+            gamelbeReset("die");
+        }
     }
 
     function formatChance()
@@ -126,13 +135,15 @@ function RandomTool()
             let tempNumber = getRandomInt(2);
             if (tempNumber == number)
             {
-                increaseCoin();
+                gambleWin("coin");
                 increaseOdds((1/2));
                 formatResults(chanceType, tempNumber, true);
+                setCoinWinLoss([coinWinLoss[0] + 1, coinWinLoss[1]]);
             }
             else {
-                //toggleCoinFail(); Testing purposes for now, don't turn off 
+                //gambleToggle("coin"); Testing purposes for now, don't turn off 
                 formatResults(chanceType, tempNumber, false);
+                setCoinWinLoss([coinWinLoss[0], coinWinLoss[1] + 1]);
             }
         }
         else if (chanceType == "die" && !dieFail)
@@ -140,13 +151,15 @@ function RandomTool()
             let tempNumber = getRandomInt(6);
             if (tempNumber == number)
             {
-                increaseDie();
+                gambleWin("die");
                 increaseOdds((1/6));
                 formatResults(chanceType, tempNumber, true);
+                setDieWinLoss([dieWinLoss[0] + 1, dieWinLoss[1]]);
             }
             else {
-                //toggleDieFail();
+                //gambleToggle("die");
                 formatResults(chanceType, tempNumber, false);
+                setDieWinLoss([dieWinLoss[0], dieWinLoss[1] + 1]);
             }
         }
     }
@@ -159,17 +172,19 @@ function RandomTool()
     return(
         <>
             <p>{formatChance()} chance to get this lucky</p>
+            <p>{coinWinLoss[0]} wins and {coinWinLoss[1]} losses for coinflips</p>
+            <p>{dieWinLoss[0]} wins and {dieWinLoss[1]} losses for dice rolls</p>
             <p>{callResult}</p>
             <button className="flip-coin" onClick={() => testOdds("coin", 0)}>Call Heads</button>
             <button className="flip-coin" onClick={() => testOdds("coin", 1)}>Call Tails</button>
-            <button className="flip-coin" onClick={() => resetCoin()}>Coin Reset</button> <br/> <br/>
+            <button className="flip-coin" onClick={() => gamelbeReset("coin")}>Coin Reset</button> <br/> <br/>
             <button className="roll-die" onClick={() => testOdds("die", 0)}>Call One</button>
             <button className="roll-die" onClick={() => testOdds("die", 1)}>Call Two</button>
             <button className="roll-die" onClick={() => testOdds("die", 2)}>Call Three</button>
             <button className="roll-die" onClick={() => testOdds("die", 3)}>Call Four</button>
             <button className="roll-die" onClick={() => testOdds("die", 4)}>Call Five</button>
             <button className="roll-die" onClick={() => testOdds("die", 5)}>Call Six</button>
-            <button className="roll-die" onClick={() => resetDie()}>Die Reset</button>
+            <button className="roll-die" onClick={() => gamelbeReset("die")}>Die Reset</button>
         </>
     );
 }
