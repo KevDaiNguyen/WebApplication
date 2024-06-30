@@ -171,20 +171,30 @@ function RandomTool()
 
     return(
         <>
-            <p>{formatChance()} chance to get this lucky</p>
-            <p>{coinWinLoss[0]} wins and {coinWinLoss[1]} losses for coinflips</p>
-            <p>{dieWinLoss[0]} wins and {dieWinLoss[1]} losses for dice rolls</p>
-            <p>{callResult}</p>
-            <button className="flip-coin" onClick={() => testOdds("coin", 0)}>Call Heads</button>
-            <button className="flip-coin" onClick={() => testOdds("coin", 1)}>Call Tails</button>
-            <button className="flip-coin" onClick={() => gamelbeReset("coin")}>Coin Reset</button> <br/> <br/>
-            <button className="roll-die" onClick={() => testOdds("die", 0)}>Call One</button>
-            <button className="roll-die" onClick={() => testOdds("die", 1)}>Call Two</button>
-            <button className="roll-die" onClick={() => testOdds("die", 2)}>Call Three</button>
-            <button className="roll-die" onClick={() => testOdds("die", 3)}>Call Four</button>
-            <button className="roll-die" onClick={() => testOdds("die", 4)}>Call Five</button>
-            <button className="roll-die" onClick={() => testOdds("die", 5)}>Call Six</button>
-            <button className="roll-die" onClick={() => gamelbeReset("die")}>Die Reset</button>
+            <div className="chance-container">
+                <div className="coin-container">
+                    <button className="flip-coin" onClick={() => testOdds("coin", 0)}>Call Heads</button>
+                    <button className="flip-coin" onClick={() => testOdds("coin", 1)}>Call Tails</button>
+                    <button className="flip-coin" onClick={() => gamelbeReset("coin")}>Coin Reset</button> 
+                </div>
+
+                <p>
+                    {formatChance()} chance to get this lucky <br/>
+                    {coinWinLoss[0]} wins and {coinWinLoss[1]} losses for coinflips <br/>
+                    {dieWinLoss[0]} wins and {dieWinLoss[1]} losses for dice rolls <br/>
+                    {callResult}
+                </p>
+                
+                <div className="die-container">
+                    <span className="roll-die" onClick={() => testOdds("die", 0)}>Call One</span> 
+                    <span className="roll-die" onClick={() => testOdds("die", 1)}>Call Two</span>
+                    <span className="roll-die" onClick={() => testOdds("die", 2)}>Call Three</span> <br/>
+                    <button className="roll-die" onClick={() => testOdds("die", 3)}>Call Four</button>
+                    <button className="roll-die" onClick={() => testOdds("die", 4)}>Call Five</button>
+                    <button className="roll-die" onClick={() => testOdds("die", 5)}>Call Six</button>
+                    <button className="roll-die" onClick={() => gamelbeReset("die")}>Die Reset</button>
+                </div>
+            </div>
         </>
     );
 }

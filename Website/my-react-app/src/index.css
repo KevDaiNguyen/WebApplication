@@ -315,3 +315,54 @@ input[type="color"]{
 .reset-button:hover{
   background-color: hsl(205, 90%, 55%);
 }
+
+.chance-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.coin-container {
+  text-align: left;
+  margin-right: auto;
+  display: inline-block;
+  margin-left: 200px;
+}
+
+.die-container {
+  margin-left: auto;
+  display: inline-block;
+  margin-right: 200px;
+}
+
+.flip-coin, .roll-die {
+  width: 75px;
+  height: 25px;
+  font-size: 0.65rem;
+  font-weight: bold;
+  box-sizing: border-box; /* Reset default styles */
+  background-color: hsl(200, 100%, 50%);
+  color: white;
+  padding: 5px; /* Add some padding for better visual separation */
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.flip-coin{
+  margin-right: 5px;
+}
+
+.roll-die{
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.flip-coin:hover, .roll-die:hover {
+  background-color: hsl(200, 100%, 40%);
+}
