@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useEffect} from "react";
 
 function RandomTool()
 {
@@ -10,6 +10,16 @@ function RandomTool()
     const [coinWinLoss, setCoinWinLoss] = useState([0, 0]);
     const [dieWinLoss, setDieWinLoss] = useState([0, 0]);
     const [callResult, setCallText] = useState("");
+    const [pngURL, setImageURL] = useState("");
+
+    const coinHeadImg = "./src/assets/Coin-Head.png";
+    const coinTailsImg = "./src/assets/Coin-Tails.png";
+    const dieOneImg = "./src/assets/Die-1.png";
+    const dieTwoImg = "./src/assets/Die-2.png";
+    const dieThreeImg = "./src/assets/Die-3.png";
+    const dieFourImg = "./src/assets/Die-4.png";
+    const dieFiveImg = "./src/assets/Die-5.png";
+    const dieSixImg = "./src/assets/Die-6.png";
 
     useEffect(() => {
         formatChance();
@@ -121,11 +131,52 @@ function RandomTool()
         }
 
         setCallText(tempString);
+        imagePopup(chanceType, number);
+    }
+
+    function imagePopup(chanceType, number)
+    {
+        if (chanceType == "coin")
+        {
+            switch(number)
+            {
+                case 0: setImageURL(coinHeadImg);
+                        break;
+
+                case 1: setImageURL(coinTailsImg);
+                        break;
+            }
+        }
+        else {
+            switch(number)
+            {
+                case 0: setImageURL(dieOneImg);
+                        break;
+
+                case 1: setImageURL(dieTwoImg);
+                        break;  
+
+                case 2: setImageURL(dieThreeImg);
+                        break;
+
+                case 3: setImageURL(dieFourImg);
+                        break;
+
+                case 4: setImageURL(dieFiveImg);
+                        break;
+
+                case 5: setImageURL(dieSixImg);
+                        break;
+            }
+        }
+
+        return imageSource;
     }
 
     function resetResults()
     {
         setCallText("");
+        setImageURL("");
     }
 
     function testOdds(chanceType, number)
@@ -137,13 +188,13 @@ function RandomTool()
             {
                 gambleWin("coin");
                 increaseOdds((1/2));
-                formatResults(chanceType, tempNumber, true);
                 setCoinWinLoss([coinWinLoss[0] + 1, coinWinLoss[1]]);
+                formatResults(chanceType, tempNumber, true);
             }
             else {
                 //gambleToggle("coin"); Testing purposes for now, don't turn off 
-                formatResults(chanceType, tempNumber, false);
                 setCoinWinLoss([coinWinLoss[0], coinWinLoss[1] + 1]);
+                formatResults(chanceType, tempNumber, false);
             }
         }
         else if (chanceType == "die" && !dieFail)
@@ -153,13 +204,13 @@ function RandomTool()
             {
                 gambleWin("die");
                 increaseOdds((1/6));
-                formatResults(chanceType, tempNumber, true);
                 setDieWinLoss([dieWinLoss[0] + 1, dieWinLoss[1]]);
+                formatResults(chanceType, tempNumber, true);
             }
             else {
                 //gambleToggle("die");
-                formatResults(chanceType, tempNumber, false);
                 setDieWinLoss([dieWinLoss[0], dieWinLoss[1] + 1]);
+                formatResults(chanceType, tempNumber, false);
             }
         }
     }
@@ -180,9 +231,17 @@ function RandomTool()
 
                 <p>
                     {formatChance()} chance to get this lucky <br/>
+                    
                     {coinWinLoss[0]} wins and {coinWinLoss[1]} losses for coinflips <br/>
                     {dieWinLoss[0]} wins and {dieWinLoss[1]} losses for dice rolls <br/>
-                    {callResult}
+
+                    {callResult} <br/>
+
+                    {pngURL && (
+                        <div className="image-holder">
+                        <img src={pngURL} height="150" width="150"></img>
+                        </div>
+                    )}
                 </p>
                 
                 <div className="die-container">
