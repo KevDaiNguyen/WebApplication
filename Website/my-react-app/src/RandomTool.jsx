@@ -48,6 +48,18 @@ function RandomTool()
         }
     }
 
+    function gambleLoss(chanceType)
+    {
+        if (chanceType == "coin")
+        {
+            setCoinChance(coin => coin / (1/2));
+        }
+        else if (chanceType == "die")
+        {
+            setDieChance(die => die / (1/6));
+        }
+    }
+
     function gamelbeReset(chanceType)
     {
         if (chanceType == "coin")
@@ -192,7 +204,9 @@ function RandomTool()
                 formatResults(chanceType, tempNumber, true);
             }
             else {
-                //gambleToggle("coin"); Testing purposes for now, don't turn off 
+                //gambleToggle("coin"); Testing purposes for now, don't turn off
+                //gambleLoss("coin"); Incorrect math. Need to find a correct way to show propper win loss 
+                //decreaseOdds((1/2));
                 setCoinWinLoss([coinWinLoss[0], coinWinLoss[1] + 1]);
                 formatResults(chanceType, tempNumber, false);
             }
@@ -209,6 +223,8 @@ function RandomTool()
             }
             else {
                 //gambleToggle("die");
+                //gambleLoss("die");
+                //decreaseOdds((1/6));
                 setDieWinLoss([dieWinLoss[0], dieWinLoss[1] + 1]);
                 formatResults(chanceType, tempNumber, false);
             }
